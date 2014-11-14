@@ -98,7 +98,11 @@ final class BluetoothMasRequestGetMessagesListing extends BluetoothMasRequest {
             oap.add(OAP_TAGID_SUBJECT_LENGTH, (byte) subjectLength);
         }
 
-        if (maxListCount != 0) {
+        if (parameters >  0 ) {
+            oap.add(OAP_TAGID_PARAMETER_MASK, parameters);
+        }
+
+        if (maxListCount >= 0) {
             oap.add(OAP_TAGID_MAX_LIST_COUNT, (short) maxListCount);
         }
 
